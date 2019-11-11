@@ -1,0 +1,74 @@
+<div *ngIf="!person;then loading else loaded"></div>
+<ng-template #loading>
+  <div class="spinner-border" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</ng-template>
+<ng-template #loaded>
+  <div *ngIf="person">
+    <div *ngIf="person.id == 0;then adding else editing"></div>
+    <ng-template #adding>
+      <h2>Add New Person</h2>
+    </ng-template>
+    <ng-template #editing>
+      <h2>Edit {{person.name}}</h2>
+    </ng-template>
+    <form #detailForm="ngForm"
+          (ngSubmit)="save()"
+          novalidate>
+      <div class="form-group row">
+        <label for="nameInputControl"
+               class="col-sm-3 col-form-label">
+          Name:
+        </label>
+        <div class="col-sm-6">
+          <input type="text"
+                 class="form-control"
+                 id="nameInputControl"
+                 name="name"
+                 [(ngModel)]="person.name"
+                 required
+                 maxlength="50"
+                 #name="ngModel" />
+        </div>
+      </div>
+      <div *ngIf="name.invalid && (name.dirty || name.touched)"
+           class="alert alert-danger form-group row col-sm-9">
+        <div *ngIf="name.errors.required">
+          Name is required.
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="dateOfBirthInputControl"
+               class="col-sm-3 col-form-label">
+          Date of Birth:
+        </label>
+        <div class="col-sm-5">
+          <input [ngModel]="person.dateOfBirth | date:'yyyy-MM-dd'"
+                 (ngModelChange)="person.dateOfBirth = $event"
+                 name="dateOfBirth"
+                 class="form-control"
+                 type="date"
+                 id="dateOfBirthInputControl"
+                 required
+                 #dob="ngModel" />
+        </div>
+      </div>
+      <div *ngIf="dob.invalid && (dob.dirty || dob.touched)"
+           class="alert alert-danger form-group row col-sm-9">
+        <div *ngIf="dob.errors.required">
+          Date of Birth is required.
+        </div>
+      </div>
+      <input type="reset"
+             (click)="goBack()"
+             class="btn btn-outline-secondary"
+             value="Cancel">
+      <input type="submit"
+             value="Save"
+             class="btn btn-outline-success"
+             [disabled]="!detailForm.valid">
+    </form>
+  </div>
+  <app-status-bar></app-status-bar>
+</ng-template>

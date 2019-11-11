@@ -1,0 +1,67 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+code {
+  color: #e01a76;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.intro-header {
+  height: unset !important;
+}
+
+.intro-2 {
+  background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url("./assets/images/people-stock-image.jpg")no-repeat center center;
+  background-size: cover;
+}
+
+.view {
+  height: 100vh !important;
+}
+
+.btn .fa {
+  margin-left: 3px;
+}
+
+.top-nav-collapse {
+  background-color: white !important;
+}
+
+.navbar:not(.top-nav-collapse) {
+  background: transparent !important;
+}
+
+@media (max-width: 768px) {
+  .navbar:not(.top-nav-collapse) {
+    background: white !important;
+  }
+}
+
+h6 {
+  line-height: 1.7;
+}
+
+@media (max-width: 450px) {
+  .margins {
+    margin-right: 1rem;
+    margin-left: 1rem;
+  }
+}
+
+@media (max-width: 740px) {
+  .full-height,
+  .full-height body,
+  .full-height header,
+  .full-height header .view {
+    height: 1020px;
+  }
+}

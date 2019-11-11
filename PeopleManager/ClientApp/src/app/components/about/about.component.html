@@ -1,0 +1,22 @@
+<h2>About People Manager</h2>
+<p>Before running this application in your local development environment, please check you have the required dependencies installed.</p>
+
+<h4>Dependency Information</h4>
+<p>This application was written using <a href="https://visualstudio.microsoft.com/vs/">Visual Studio 2019 Community Edition</a> version 16.3.7</p>
+<p>The web client is built using <a href="https://angular.io/">Angular 8</a> (build 8.3.15) which is included with Visual Studio but requires <a href="https://nodejs.org/en/">Node.js</a> version 12.12 to be installed.</p>
+<p>If you have the above version of Visual Studio and Node.js installed, all you need to do is load, build and run the application.</p>
+<p>The first time you build the application, Nuget will automatically install the required packages and this can take a few minutes to complete.</p>
+
+<h4>Project Architecture</h4>
+<p>The project uses the <a href="https://docs.microsoft.com/en-us/aspnet/core/?view=aspnetcore-3.0">ASP.Net Core 3.0</a> Web Application template for Angular 8. This allows the Angular client and the server Web API to reside in the same project which is ideal for prototype applications like this.</p>
+<p>The server is a standard REST service using ASP.Net Web API and <a href="https://docs.microsoft.com/en-us/ef/core/">Entity Framework Core</a> for data persistence. Communication between the client and server is performed via HTTPClient using JSON as the payload.</p>
+<p><a href="https://www.sqlite.org/index.html">SQLite</a> has been used as the database provider, this is a local file database so it isn't necessary to have a database server or to run any SQL scripts. <a href="https://docs.microsoft.com/en-us/ef/core/managing-schemas/migrations/?tabs=dotnet-core-cli">Code migrations</a> can be run using <code>Update Database</code> in the Package Manager Console if you need to recreate and reseed the database.</p>
+<p>The client uses a service layer to handle all HTTPClient calls. There is an option to "Show Service Messages" in the UI so you can view the calls to the server.</p>
+<p>The web pages and components use <a href="https://getbootstrap.com/docs/4.3/getting-started/introduction/">Bootstrap 4.3</a> for all styling. This comes built-in with the ASP.Net Core 3.0 project and allows a high degree of browser and mobile device support.</p>
+<p>The Angular components are built using standard HTML5 controls and do not require any third party CSS styles or JavaScript libraries.</p>
+
+<h4>Limitations</h4>
+<p>This prototype is intended, as far as possible, to run 'out of the box' and not require a developer to spend time configuring web services, databases or security permissions.</p>
+<p>As such there is no authentication required, no multi-user considerations catered for and the app only uses HTTP. The database likewise is a LocalDB file and does not require any setup. It goes without saying that these features <i>would</i> be required in any real world application but that goes beyond the scope of this demonstration.</p>
+<p>The HTML5 Input Control for Dates is rather clunky to say the least and behaves differently in every browser or device. There is an interesting discussion about it's known limitations <a href="http://html5doctor.com/the-woes-of-date-input/">here</a>.</p>
+<p>There isn't currently a Unit Test project included.</p>

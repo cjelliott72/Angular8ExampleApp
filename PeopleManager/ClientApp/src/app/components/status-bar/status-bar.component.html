@@ -1,0 +1,23 @@
+<footer class="footer mt-auto py-4">
+  <div class="form-check">
+    <input (change)="register"
+           #register
+           class="form-check-input"
+           id="showServiceMessagesCheckBox"
+           type="checkbox">
+    <label for="showServiceMessagesCheckBox"
+           class="form-check-label">
+      Show Service Messages
+    </label>
+  </div>
+  <div *ngIf="register.checked">
+    <div class="list-group">
+      <ol class="text-secondary">
+        <li *ngFor="let message of messageService.messages">
+          {{message}}
+        </li>
+      </ol>
+    </div>
+    <button class="btn btn-secondary btn-sm" (click)="messageService.clear()">Clear Messages</button>
+  </div>
+</footer>
